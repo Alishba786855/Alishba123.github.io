@@ -11,169 +11,463 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            font-family: "Segoe UI", Arial, sans-serif;
         }
 
         body {
-            background: #0f172a;
-            color: white;
+            background: #07111f;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
-        /* Main Banner */
-        .hero {
-            min-height: 100vh;
+        /* ===== NAVBAR ===== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #0f172a, #1e3a5f, #312e81);
+            padding: 18px 8%;
+            background: rgba(7, 17, 31, 0.95);
+            border-bottom: 1px solid #20334d;
+            backdrop-filter: blur(10px);
         }
 
-        .profile {
-            max-width: 850px;
-            width: 100%;
-            padding: 60px 30px;
-            background: rgba(15, 23, 42, 0.92);
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
         }
 
-        .profile h1 {
-            font-size: 48px;
+        .logo span {
+            color: #a78bfa;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: #dbeafe;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background:
+                radial-gradient(circle at 85% 20%, #173d64 0%, transparent 30%),
+                radial-gradient(circle at 10% 80%, #282052 0%, transparent 30%),
+                #07111f;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-title {
+            color: #38bdf8;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-bottom: 15px;
         }
 
-        .profile h2 {
-            color: #38bdf8;
-            font-size: 24px;
-            margin-bottom: 10px;
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1.05;
+            margin-bottom: 20px;
         }
 
-        .profile .university {
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: 500;
             color: #cbd5e1;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #94a3b8;
             font-size: 18px;
-            margin-bottom: 25px;
+            margin-bottom: 32px;
         }
 
-        .profile p {
-            max-width: 650px;
-            margin: auto;
-            color: #e2e8f0;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .location {
-            margin-top: 20px !important;
-            color: #a78bfa !important;
-        }
-
-        /* Sections */
-        .section {
-            padding: 70px 20px;
-            text-align: center;
-        }
-
-        .section h2 {
-            color: #38bdf8;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
-
-        /* About */
-        .about-box {
-            max-width: 800px;
-            margin: auto;
-            padding: 30px;
-            background: #1e293b;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .about-box p {
-            color: #cbd5e1;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        /* Skills */
-        .skills {
+        .buttons {
             display: flex;
-            justify-content: center;
+            gap: 15px;
             flex-wrap: wrap;
-            gap: 18px;
         }
 
-        .skill {
-            padding: 15px 30px;
-            background: #312e81;
-            border-radius: 30px;
+        .btn {
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            background: #7dd3fc;
+        }
+
+        .secondary {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .secondary:hover {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+
+        /* ===== GENERAL SECTION ===== */
+
+        section:not(.hero) {
+            padding: 90px 8%;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-heading .number {
+            color: #38bdf8;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin-top: 5px;
+        }
+
+        .section-heading p {
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+
+        /* ===== ABOUT ===== */
+
+        .about {
+            background: #0b1728;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #aebdce;
+            margin-bottom: 18px;
             font-size: 17px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Project */
+        .info-box {
+            background: #101f34;
+            border: 1px solid #213957;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #263b55;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #7dd3fc;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: #dbeafe;
+            text-align: right;
+        }
+
+
+        /* ===== SKILLS ===== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            padding: 30px;
+            background: #0d1a2c;
+            border: 1px solid #213957;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .skill-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+            color: #e0f2fe;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+
+        /* ===== PROJECT ===== */
+
+        .projects {
+            background: #0b1728;
+        }
+
         .project-card {
-            max-width: 650px;
-            margin: auto;
-            padding: 35px;
-            background: #1e293b;
+            max-width: 900px;
+            background: linear-gradient(135deg, #10243c, #111c35);
+            border: 1px solid #294765;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #38bdf8;
+            opacity: 0.08;
+            border-radius: 50%;
+            right: -50px;
+            top: -50px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 20px;
+            background: #193b5c;
+            color: #7dd3fc;
+            font-size: 13px;
+            margin-bottom: 18px;
         }
 
         .project-card h3 {
-            color: #a78bfa;
-            font-size: 25px;
+            font-size: 30px;
             margin-bottom: 15px;
         }
 
         .project-card p {
+            color: #aebdce;
+            max-width: 750px;
+            margin-bottom: 25px;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-features span {
+            background: #172b45;
+            padding: 8px 14px;
+            border-radius: 6px;
             color: #cbd5e1;
-            font-size: 17px;
-            line-height: 1.7;
+            font-size: 14px;
         }
 
-        /* Contact */
-        .contact {
-            padding: 60px 20px;
-            text-align: center;
-            background: #020617;
+
+        /* ===== EDUCATION ===== */
+
+        .education-card {
+            max-width: 900px;
+            padding: 35px;
+            border-left: 4px solid #38bdf8;
+            background: #0d1a2c;
+            border-radius: 0 15px 15px 0;
         }
 
-        .contact h2 {
+        .education-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .education-card .degree {
             color: #38bdf8;
-            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .contact p {
-            color: #cbd5e1;
-            font-size: 17px;
+        .education-card p {
+            color: #94a3b8;
+            margin-top: 8px;
         }
 
-        /* Footer */
+
+        /* ===== CONTACT ===== */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            padding: 45px;
+            background: linear-gradient(135deg, #10243c, #171c3c);
+            border: 1px solid #294765;
+            border-radius: 20px;
+        }
+
+        .contact-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .email {
+            display: inline-block;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .email:hover {
+            color: #7dd3fc;
+        }
+
+
+        /* ===== FOOTER ===== */
+
         footer {
             text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: #94a3b8;
-            border-top: 1px solid #334155;
+            padding: 25px;
+            background: #050c16;
+            color: #64748b;
+            border-top: 1px solid #1d3047;
+            font-size: 14px;
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
 
-            .profile h1 {
-                font-size: 36px;
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
             }
 
-            .profile h2 {
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            section:not(.hero) {
+                padding: 65px 6%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
                 font-size: 20px;
             }
 
-            .section {
-                padding: 50px 20px;
+            .info-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .info-value {
+                text-align: left;
+            }
+
+            .project-card,
+            .contact-box {
+                padding: 25px;
             }
         }
     </style>
@@ -181,87 +475,245 @@
 
 <body>
 
-    <!-- Profile Banner -->
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">AN<span>.</span></div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Project</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+
     <section class="hero">
 
-        <div class="profile">
+        <div class="hero-content">
 
-            <h1>Alishba Nawaz</h1>
+            <div class="small-title">
+                Digital Profile
+            </div>
 
-            <h2>BS Information Technology — 5th Semester</h2>
+            <h1>
+                Hi, I'm <span>Alishba Nawaz</span>
+            </h1>
 
-            <p class="university">
-                University of Education Lahore, Multan Campus
-            </p>
-
-            <p>
-                I am an Information Technology student interested in
-                programming, databases and developing useful technology
-                solutions. I am continuously learning new technical skills
-                and improving my knowledge in the field of IT.
-            </p>
-
-            <p class="location">
-                📍 Mailsi
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- About Section -->
-    <section class="section">
-
-        <h2>About Me</h2>
-
-        <div class="about-box">
+            <h2>
+                BS Information Technology Student
+            </h2>
 
             <p>
-                I am currently studying BS Information Technology in my
-                5th semester. My academic interests include programming,
-                database systems and MySQL. I enjoy working on practical
-                projects that help me apply my IT knowledge.
+                I am a 5th semester BS IT student at the University of
+                Education Lahore, Multan Campus. I am interested in
+                programming, database systems and learning modern
+                information technology skills.
             </p>
 
-        </div>
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    View My Project
+                </a>
 
-    </section>
-
-
-    <!-- Skills Section -->
-    <section class="section">
-
-        <h2>My Skills</h2>
-
-        <div class="skills">
-
-            <div class="skill">C++</div>
-
-            <div class="skill">Database</div>
-
-            <div class="skill">MySQL</div>
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- Projects Section -->
-    <section class="section">
+    <!-- ABOUT -->
 
-        <h2>My Project</h2>
+    <section class="about" id="about">
+
+        <div class="section-heading">
+            <div class="number">01 — ABOUT</div>
+            <h2>About Me</h2>
+            <p>A little information about my academic profile.</p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am currently pursuing a Bachelor of Science in
+                    Information Technology and am studying in my
+                    5th semester.
+                </p>
+
+                <p>
+                    My academic interests include programming,
+                    database management and MySQL. I enjoy applying
+                    what I learn through practical university projects.
+                </p>
+
+                <p>
+                    My goal is to continue developing my technical
+                    knowledge and build useful technology solutions.
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-row">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">Alishba Nawaz</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Program</span>
+                    <span class="info-value">BS Information Technology</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Semester</span>
+                    <span class="info-value">5th Semester</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">University</span>
+                    <span class="info-value">
+                        University of Education Lahore
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Campus</span>
+                    <span class="info-value">Multan Campus</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">City</span>
+                    <span class="info-value">Mailsi</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-heading">
+            <div class="number">02 — SKILLS</div>
+            <h2>Technical Skills</h2>
+            <p>Technologies and areas I have studied.</p>
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>C++</h3>
+                <p>
+                    Programming fundamentals and object-oriented
+                    programming concepts.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <div class="skill-icon">🗄️</div>
+                <h3>Database</h3>
+                <p>
+                    Database concepts, ER diagrams, relationships
+                    and database design.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <div class="skill-icon">🔷</div>
+                <h3>MySQL</h3>
+                <p>
+                    Working with databases, tables, queries and
+                    basic SQL operations.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT -->
+
+    <section class="projects" id="projects">
+
+        <div class="section-heading">
+            <div class="number">03 — PROJECT</div>
+            <h2>Academic Project</h2>
+            <p>A database project completed during my studies.</p>
+        </div>
+
 
         <div class="project-card">
+
+            <div class="project-tag">
+                DATABASE PROJECT
+            </div>
 
             <h3>Online Voting System</h3>
 
             <p>
-                An academic database project developed to manage an
-                online voting system. The project included database
-                design and an ER diagram to represent the relationships
-                between different entities such as voters, candidates
-                and votes.
+                The Online Voting System was an academic database
+                project. The project focused on designing a structured
+                database for managing voters, candidates and voting
+                information. An ER diagram was also created to represent
+                the entities and relationships within the system.
+            </p>
+
+            <div class="project-features">
+                <span>Database Design</span>
+                <span>ER Diagram</span>
+                <span>MySQL</span>
+                <span>SQL</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+        <div class="section-heading">
+            <div class="number">04 — EDUCATION</div>
+            <h2>Education</h2>
+            <p>My current academic journey.</p>
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>
+                University of Education Lahore
+            </h3>
+
+            <div class="degree">
+                BS Information Technology — 5th Semester
+            </div>
+
+            <p>
+                Multan Campus
             </p>
 
         </div>
@@ -269,20 +721,41 @@
     </section>
 
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- CONTACT -->
 
-        <h2>Contact Me</h2>
+    <section class="contact" id="contact">
 
-        <p>
-            📧 haq786.nwaz@gmail.com
-        </p>
+        <div class="section-heading">
+            <div class="number">05 — CONTACT</div>
+            <h2>Let's Connect</h2>
+        </div>
+
+
+        <div class="contact-box">
+
+            <h2>Get in Touch</h2>
+
+            <p>
+                Thank you for visiting my digital profile.
+                You can contact me through my email.
+            </p>
+
+            <a
+                href="mailto:haq786.nwaz@gmail.com"
+                class="email"
+            >
+                haq786.nwaz@gmail.com
+            </a>
+
+        </div>
 
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer>
-        © 2026 Alishba Nawaz | Digital Profile
+        © 2026 Alishba Nawaz | BS Information Technology
     </footer>
 
 </body>
